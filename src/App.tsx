@@ -807,22 +807,23 @@ export default function App() {
         onClose={() => setIsResetModalOpen(false)}
         onResetResume={handleResetResume}
       />
-
-      <HowItWorksModal
+          <HowItWorksModal
         isOpen={isHowItWorksOpen}
         onClose={() => setIsHowItWorksOpen(false)}
         onStartBlank={() => handleResetResume(INITIAL_EMPTY_RESUME, true)}
         onLoadDemo={() => handleResetResume(SAMPLE_TECH_LEAD, true)}
       />
+
+      <a 
+        href="https://github.com/kilcherushikesh-gif" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="my-custom-badge"
+      >
+        <img src={logo} alt="Rishi Logo" className="badge-logo" />
+        <span>Powered by Rishi</span>
+      </a>
+
     </div>
-    <a 
-  href="https://github.com/kilcherushikesh-gif" 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className="my-custom-badge"
->
-  <img src={logo} alt="Rishi Logo" className="badge-logo" />
-  <span>Powered by Rishi</span>
-</a>
   );
 }
