@@ -94,18 +94,42 @@ div[data-netlify-badge],
 a[href*="netlify.com"] { 
     display: none !important; 
 }
-/* Apna logo bottom-right corner mein fix karne ke liye */
-.my-floating-logo {
+/* Custom Badge (Logo + Text) */
+.my-custom-badge {
     position: fixed;
-    bottom: 15px;  /* Netlify badge jitna neeche se distance */
-    right: 15px;   /* Right side se distance */
-    width: 80px;   /* Apne logo ka size yahan adjust karein */
-    height: auto;
-    z-index: 9999; /* Taaki ye baaki sab elements ke upar dikhe */
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Logo aur text ke beech ka space */
+    background-color: #ffffff; /* Badge ka background (White) */
+    color: #1e293b; /* Text ka color (Dark) */
+    padding: 6px 12px;
+    border-radius: 9999px; /* Pill shape (Gol kinare) */
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0; /* Halki si border */
+    z-index: 9999; /* Sabse upar dikhne ke liye */
+    transition: all 0.2s ease;
 }
 
+/* Hover effect */
+.my-custom-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: #f8fafc;
+}
+
+/* Badge ke andar logo ka size */
+.badge-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Logo ko gol karne ke liye */
+    object-fit: cover;
+}
 .my-floating-logo:hover {
     transform: scale(1.1); /* Hover karne par thoda bada hoga */
 }
