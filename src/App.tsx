@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from './logo.png';
 import { ResumeData, ResumeDesignConfig } from './types/resume';
 import { SAMPLE_TECH_LEAD, INITIAL_EMPTY_RESUME } from './data/sampleProfiles';
 import { PersonalInfoForm } from './components/editor/PersonalInfoForm';
