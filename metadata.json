@@ -1,0 +1,8 @@
+{
+  "name": "ResumAI - AI Resume & CV Builder",
+  "description": "Create ATS-friendly, professional resumes and CVs with real-time AI assistance, designer templates, bullet polishers, and instant PDF export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
