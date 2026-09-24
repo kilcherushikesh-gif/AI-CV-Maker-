@@ -814,5 +814,14 @@ export default function App() {
         onLoadDemo={() => handleResetResume(SAMPLE_TECH_LEAD, true)}
       />
     </div>
+    <a 
+  href="https://github.com/kilcherushikesh-gif" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="my-custom-badge"
+>
+  <img src="/logo.png" alt="Rishi Logo" className="badge-logo" />
+  <span>Powered by Rishi</span>
+</a>
   );
 }
