@@ -821,7 +821,7 @@ export default function App() {
   rel="noopener noreferrer" 
   className="my-custom-badge"
 >
-  <img src="/logo.png" alt="Rishi Logo" className="badge-logo" />
+  <img src={logo} alt="Rishi Logo" className="badge-logo" />
   <span>Powered by Rishi</span>
 </a>
   );
