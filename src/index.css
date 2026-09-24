@@ -94,3 +94,18 @@ div[data-netlify-badge],
 a[href*="netlify.com"] { 
     display: none !important; 
 }
+/* Apna logo bottom-right corner mein fix karne ke liye */
+.my-floating-logo {
+    position: fixed;
+    bottom: 15px;  /* Netlify badge jitna neeche se distance */
+    right: 15px;   /* Right side se distance */
+    width: 80px;   /* Apne logo ka size yahan adjust karein */
+    height: auto;
+    z-index: 9999; /* Taaki ye baaki sab elements ke upar dikhe */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.my-floating-logo:hover {
+    transform: scale(1.1); /* Hover karne par thoda bada hoga */
+}
