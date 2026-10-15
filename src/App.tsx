@@ -88,22 +88,22 @@ export default function App() {
     };
   });
 
-  // Save changes to localStorage
-  useEffect(() => {
-    try {
-      localStorage.setItem('resumai_data_rishi_v1', JSON.stringify(resumeData));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [resumeData]);
+  const [saveStatus, setSaveStatus] = useState<'saving' | 'saved' | 'error'>('saved');
 
   useEffect(() => {
-    try {
-      localStorage.setItem('resumai_design', JSON.stringify(designConfig));
-    } catch (e) {
-      console.error(e);
-    }
-  }, [designConfig]);
+    setSaveStatus('saving');
+    const timeout = window.setTimeout(() => {
+      try {
+        localStorage.setItem('resumai_data_rishi_v1', JSON.stringify(resumeData));
+        localStorage.setItem('resumai_design', JSON.stringify(designConfig));
+        setSaveStatus('saved');
+      } catch (e) {
+        console.error(e);
+        setSaveStatus('error');
+      }
+    }, 250);
+    return () => window.clearTimeout(timeout);
+  }, [resumeData, designConfig]);
 
   // Main UI states
   const [activeTab, setActiveTab] = useState<'content' | 'design'>('content');
@@ -247,6 +247,22 @@ export default function App() {
 
         {/* Center / Action Buttons */}
         <div className="flex items-center gap-2">
+          <div
+            className={`hidden md:inline-flex items-center gap-1.5 text-[11px] font-medium ${saveStatus === 'error' ? 'text-rose-300' : 'text-slate-400'}`}
+            role="status"
+            aria-live="polite"
+            title="Resume data is saved only in this browser on this device"
+          >
+            {saveStatus === 'saving' ? (
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            ) : (
+              <CheckCircle className={`w-3.5 h-3.5 ${saveStatus === 'saved' ? 'text-emerald-400' : ''}`} />
+            )}
+            <span className="hidden xl:inline">
+              {saveStatus === 'saving' ? 'Saving…' : saveStatus === 'saved' ? 'Saved on this device' : 'Local save unavailable'}
+            </span>
+          </div>
+
           {/* Upload CV PDF & Get ATS Score */}
           <button
             onClick={() => setIsPdfATSOpen(true)}
